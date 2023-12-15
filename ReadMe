@@ -1,0 +1,73 @@
+# Project: Development of an automated ML-based tool for classification problems
+
+Aim: To develop a comprehensive python script that will run (binary or multi-class) classification
+problems on any given input data matrix
+
+## Project Structure
+
+Ensure that the following files are in the same folder:
+
+- `dataset.csv` (Your dataset in the prescribed form)
+
+- `main.py`
+
+- `normalization.py`
+
+    I've given 6 Options here : 
+    1. StandardScaler
+    2. MinMaxScaler
+    3. RobustScaler
+    4. Normalizer
+    5. MaxAbsScaler
+    6. PowerTransformer
+
+- `feature_selection.py`
+
+    I've given 8 Options here :
+    1. SelectKBest (ANOVA)
+    2. RFE (Recursive Feature Elimination)
+    3. Variance Threshold
+    4. Mutual Information
+    5. F-statistic (f_classif)
+    6. Principal Component Analysis (PCA)
+    7. Recursive Feature Addition (RFA)
+    8. L1-based feature selection (LASSO)
+
+- `cross_val.py`
+
+    I've given 6 Options here :
+    1. K-Fold Cross-Validation
+    2. Stratified K-Fold Cross-Validation
+    3. Repeated K-Fold Cross-Validation  
+    4. Group K-Fold Cross-Validation     
+    5. Time Series Split Cross-Validation
+    6. Shuffle Split Cross-Validation
+
+- `models.py`
+
+    I've given 8 Options here :
+    1. Random Forest
+    2. K-Nearest Neighbors
+    3. Support Vector Machine
+    4. Logistic Regression
+    5. Naive Bayes
+    6. Gradient Boosting
+    7. Decision Tree
+    8. Neural Network
+
+
+# Execution
+
+Open a command prompt and navigate to the project folder.
+
+Execute the following command to run the program:
+
+python main.py
+
+Output
+
+Upon execution, the program will generate:
+
+results.pdf: Contains accuracy scores,and all performance metrics
+plots.pdf: Includes visual representations of the results.
+
