@@ -1,0 +1,9 @@
+# Runtime dependencies. Pinned to lower bounds that the code is known to need;
+# newer minor releases are expected to work.
+numpy>=1.24
+pandas>=2.0
+scikit-learn>=1.4        # HistGradientBoostingClassifier(class_weight=...)
+scipy>=1.10              # paired t-test in the model comparison
+matplotlib>=3.7
+reportlab>=4.0
+pillow>=10.0             # image scaling in the PDF report

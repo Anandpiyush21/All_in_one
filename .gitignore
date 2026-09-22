@@ -1,0 +1,21 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Experiment outputs are reproducible from config.json; don't version them.
+runs/
+results.pdf
+plots.pdf
+
+.DS_Store
+.idea/
+.vscode/
