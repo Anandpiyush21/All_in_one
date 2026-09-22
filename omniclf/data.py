@@ -3,7 +3,7 @@
 Only operations that are *row-independent* happen here (dropping unusable
 columns, encoding the label, splitting). Everything that learns a statistic
 from the data -- imputation values, category vocabularies, scaling constants --
-is deferred to the pipeline in :mod:`autoclf.pipeline`.
+is deferred to the pipeline in :mod:`omniclf.pipeline`.
 """
 
 from __future__ import annotations
@@ -16,7 +16,7 @@ import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-from autoclf.config import RunConfig
+from omniclf.config import RunConfig
 
 LOGGER = logging.getLogger(__name__)
 

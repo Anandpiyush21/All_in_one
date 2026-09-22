@@ -33,13 +33,13 @@ from reportlab.platypus import (
     TableStyle,
 )
 
-from autoclf import __version__, plots
-from autoclf.config import RunConfig
-from autoclf.cross_val import describe as describe_cv
-from autoclf.data import Dataset
-from autoclf.evaluate import CV_METRICS, ModelResult, compare_models
-from autoclf.feature_selection import describe as describe_selector
-from autoclf.preprocessing import describe as describe_scaler
+from omniclf import __version__, plots
+from omniclf.config import RunConfig
+from omniclf.cross_val import describe as describe_cv
+from omniclf.data import Dataset
+from omniclf.evaluate import CV_METRICS, ModelResult, compare_models
+from omniclf.feature_selection import describe as describe_selector
+from omniclf.preprocessing import describe as describe_scaler
 
 LOGGER = logging.getLogger(__name__)
 
@@ -121,7 +121,7 @@ def _footer(canvas, doc) -> None:
     canvas.saveState()
     canvas.setFont("Helvetica", 7.5)
     canvas.setFillColor(INK_SOFT)
-    canvas.drawString(20 * mm, 12 * mm, f"autoclf v{__version__} — automated classification report")
+    canvas.drawString(20 * mm, 12 * mm, f"omniclf v{__version__} — automated classification report")
     canvas.drawRightString(A4[0] - 20 * mm, 12 * mm, f"page {doc.page}")
     canvas.setStrokeColor(RULE)
     canvas.line(20 * mm, 15 * mm, A4[0] - 20 * mm, 15 * mm)
@@ -146,7 +146,7 @@ def write_pdf(
         topMargin=18 * mm,
         bottomMargin=20 * mm,
         title="Automated classification report",
-        author="autoclf",
+        author="omniclf",
     )
     usable = doc.width
     best = max(results, key=lambda r: r.cv_mean["f1_macro"])
@@ -353,7 +353,7 @@ def write_json(path: Path, config: RunConfig, dataset: Dataset, results: list[Mo
     import sklearn
 
     payload = {
-        "autoclf_version": __version__,
+        "omniclf_version": __version__,
         "generated_at": datetime.now().isoformat(timespec="seconds"),
         "environment": {
             "python": platform.python_version(),

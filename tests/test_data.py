@@ -2,8 +2,8 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from autoclf.config import RunConfig
-from autoclf.data import load_dataset
+from omniclf.config import RunConfig
+from omniclf.data import load_dataset
 
 
 def test_split_sizes_and_schema(toy_config):

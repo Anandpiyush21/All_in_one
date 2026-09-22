@@ -23,9 +23,9 @@ class RunConfig:
         Path to the input CSV. The target is taken from ``target_column``
         (name or index; ``-1`` means the last column).
     scaler, selector, cv, models:
-        Registry keys resolved by :mod:`autoclf.preprocessing`,
-        :mod:`autoclf.feature_selection`, :mod:`autoclf.cross_val` and
-        :mod:`autoclf.models`.
+        Registry keys resolved by :mod:`omniclf.preprocessing`,
+        :mod:`omniclf.feature_selection`, :mod:`omniclf.cross_val` and
+        :mod:`omniclf.models`.
     n_features:
         Number of features requested from the selector (ignored by selectors
         that determine the count themselves, e.g. ``variance`` / ``lasso``).

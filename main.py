@@ -8,7 +8,7 @@
 
 import sys
 
-from autoclf.cli import main
+from omniclf.cli import main
 
 if __name__ == "__main__":
     sys.exit(main())

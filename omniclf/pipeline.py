@@ -20,11 +20,11 @@ from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder
 
-from autoclf.config import RunConfig
-from autoclf.data import Dataset
-from autoclf.feature_selection import build_selector
-from autoclf.models import build_model
-from autoclf.preprocessing import build_scaler
+from omniclf.config import RunConfig
+from omniclf.data import Dataset
+from omniclf.feature_selection import build_selector
+from omniclf.models import build_model
+from omniclf.preprocessing import build_scaler
 
 
 def build_preprocessor(dataset: Dataset) -> ColumnTransformer:

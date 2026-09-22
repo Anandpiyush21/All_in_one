@@ -1,4 +1,4 @@
-# AutoCLF — An Automated, Leakage-Free Classification Pipeline
+# OmniCLF — An All-in-One, Leakage-Free Classification Pipeline
 
 A command-line tool that takes an arbitrary tabular CSV and produces a
 validated classification experiment: preprocessing, feature selection, model
@@ -17,13 +17,17 @@ Building a classifier is easy; producing an accuracy figure that survives
 contact with new data is not. The common failure is not a bad model but a
 *leaky evaluation*: a scaler, an imputer or a feature ranking fitted on the
 whole dataset before the folds are drawn, so every reported score is quietly
-optimistic. AutoCLF makes that mistake structurally impossible — every
+optimistic. OmniCLF makes that mistake structurally impossible — every
 data-dependent transformation lives inside a scikit-learn `Pipeline` and is
 refitted from scratch on each training fold — and reports the metrics that
 remain informative when classes are imbalanced. On the bundled demographic
 health survey (30,548 usable records, 4.9 : 1 class ratio), the tool shows why
 this matters: the model with the *highest accuracy* in the benchmark, 83.0%, is
 the one that learned nothing at all.
+
+📄 **[REPORT.md](REPORT.md)** — the full technical report: the leakage taxonomy,
+an audit of the previous implementation, the design rationale, the complete
+results and discussion, and the limitations.
 
 ## Contents
 
@@ -123,7 +127,7 @@ python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Python 3.10+. To install the package and get an `autoclf` command on `PATH`:
+Python 3.10+. To install the package and get an `omniclf` command on `PATH`:
 
 ```bash
 pip install -e ".[dev]"
@@ -289,7 +293,7 @@ specifically to pin down the v1 defects and keep them from coming back:
 ## Repository layout
 
 ```
-autoclf/
+omniclf/
 ├── __init__.py
 ├── config.py            RunConfig — the single source of truth, JSON-serialisable
 ├── data.py              loading, cleaning, schema inference, stratified split
@@ -305,9 +309,9 @@ autoclf/
 ├── interactive.py       the guided menu flow from v1
 └── cli.py               argument parsing and the console summary
 docs/
-├── methodology.md       design decisions and the reasoning behind them
-└── figures/             figures used by this README
+└── figures/             figures used by the README and the report
 tests/                   99 tests
+REPORT.md                full technical report
 main.py                  entry point
 dataset.csv              bundled demographic health survey extract
 ```
@@ -321,7 +325,7 @@ categorical columns are dropped by a crude 50-level heuristic instead of being
 target-encoded; predicted probabilities are never calibrated; the hold-out
 estimate comes from a single split; and class imbalance is handled by
 re-weighting only, not resampling. Each is discussed, with the fix it would
-need, in [`docs/methodology.md`](docs/methodology.md#6-known-limitations).
+need, in [`REPORT.md`](REPORT.md#9-limitations-and-future-work).
 
 ## References
 

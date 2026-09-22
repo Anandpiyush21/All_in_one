@@ -14,25 +14,25 @@ import logging
 import sys
 from pathlib import Path
 
-from autoclf import __version__
-from autoclf.config import RunConfig
-from autoclf.cross_val import SPLITTERS
-from autoclf.feature_selection import SELECTORS
-from autoclf.models import MODELS
-from autoclf.preprocessing import SCALERS
-from autoclf.runner import RunOutcome, run
+from omniclf import __version__
+from omniclf.config import RunConfig
+from omniclf.cross_val import SPLITTERS
+from omniclf.feature_selection import SELECTORS
+from omniclf.models import MODELS
+from omniclf.preprocessing import SCALERS
+from omniclf.runner import RunOutcome, run
 
-LOGGER = logging.getLogger("autoclf")
+LOGGER = logging.getLogger("omniclf")
 
 
 def build_parser() -> argparse.ArgumentParser:
     defaults = RunConfig()
     parser = argparse.ArgumentParser(
-        prog="autoclf",
+        prog="omniclf",
         description="Automated, leakage-free classification pipeline for tabular data.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
-    parser.add_argument("--version", action="version", version=f"autoclf {__version__}")
+    parser.add_argument("--version", action="version", version=f"omniclf {__version__}")
 
     data = parser.add_argument_group("data")
     data.add_argument("--dataset", default=defaults.dataset, help="input CSV")
@@ -193,14 +193,14 @@ def main(argv: list[str] | None = None) -> int:
     # No arguments at all: fall back to the guided flow, as the original did.
     interactive = args.interactive or (argv is None and len(sys.argv) == 1)
     if interactive and not args.config:
-        from autoclf.interactive import configure_interactively
+        from omniclf.interactive import configure_interactively
 
         config = configure_interactively(config_from_args(args))
     else:
         config = config_from_args(args)
 
     try:
-        from autoclf.runner import prepare_run_dir
+        from omniclf.runner import prepare_run_dir
 
         run_dir = prepare_run_dir(config)
         configure_logging(run_dir=run_dir, verbose=args.verbose)

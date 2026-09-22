@@ -4,9 +4,9 @@ import json
 
 import pytest
 
-from autoclf.cli import build_parser, config_from_args, main
-from autoclf.config import RunConfig
-from autoclf.runner import run
+from omniclf.cli import build_parser, config_from_args, main
+from omniclf.config import RunConfig
+from omniclf.runner import run
 
 
 @pytest.fixture(scope="module")
@@ -88,7 +88,7 @@ def test_flags_map_onto_the_config():
 
 
 def test_all_models_expands_the_registry():
-    from autoclf.models import MODELS
+    from omniclf.models import MODELS
 
     config = config_from_args(build_parser().parse_args(["--all-models"]))
     assert config.models == sorted(MODELS)

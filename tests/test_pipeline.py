@@ -6,8 +6,8 @@ from sklearn.base import clone
 from sklearn.exceptions import NotFittedError
 from sklearn.model_selection import cross_val_score
 
-from autoclf.data import load_dataset
-from autoclf.pipeline import build_pipeline, selected_feature_names
+from omniclf.data import load_dataset
+from omniclf.pipeline import build_pipeline, selected_feature_names
 
 
 def test_pipeline_has_the_four_expected_stages(toy_config):

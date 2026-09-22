@@ -36,7 +36,7 @@ SURFACE = "#ffffff"
 
 #: Single-hue sequential ramp (light -> dark) for magnitude encodings.
 SEQUENTIAL = LinearSegmentedColormap.from_list(
-    "autoclf_blue", ["#eef5fd", "#cde2fb", "#9ec5f4", "#5598e7", "#2a78d6", "#1c5cab", "#0d366b"]
+    "omniclf_blue", ["#eef5fd", "#cde2fb", "#9ec5f4", "#5598e7", "#2a78d6", "#1c5cab", "#0d366b"]
 )
 
 

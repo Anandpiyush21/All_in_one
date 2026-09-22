@@ -1,7 +1,7 @@
 import numpy as np
 
-from autoclf.data import load_dataset
-from autoclf.evaluate import CV_METRICS, compare_models, evaluate_model
+from omniclf.data import load_dataset
+from omniclf.evaluate import CV_METRICS, compare_models, evaluate_model
 
 
 def test_all_metrics_are_collected(toy_config):

@@ -8,11 +8,11 @@ scripted paths share one execution engine.
 
 from __future__ import annotations
 
-from autoclf.config import RunConfig
-from autoclf.cross_val import SPLITTERS
-from autoclf.feature_selection import SELECTORS
-from autoclf.models import MODELS
-from autoclf.preprocessing import SCALERS
+from omniclf.config import RunConfig
+from omniclf.cross_val import SPLITTERS
+from omniclf.feature_selection import SELECTORS
+from omniclf.models import MODELS
+from omniclf.preprocessing import SCALERS
 
 BOLD, DIM, RESET = "\033[1m", "\033[2m", "\033[0m"
 
@@ -49,7 +49,7 @@ def _ask_int(prompt: str, default: int) -> int:
 def configure_interactively(base: RunConfig | None = None) -> RunConfig:
     """Fill a :class:`RunConfig` by asking the questions the original tool asked."""
     config = base or RunConfig()
-    print(f"\n{BOLD}autoclf — interactive setup{RESET}")
+    print(f"\n{BOLD}omniclf — interactive setup{RESET}")
     print(f"{DIM}Press Enter at any prompt to accept the default.{RESET}")
 
     dataset = input(f"\nDataset CSV [{config.dataset}]: ").strip()

@@ -8,11 +8,11 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-from autoclf import report
-from autoclf.config import RunConfig
-from autoclf.cross_val import requires_groups
-from autoclf.data import Dataset, load_dataset
-from autoclf.evaluate import ModelResult, compare_models, evaluate_model
+from omniclf import report
+from omniclf.config import RunConfig
+from omniclf.cross_val import requires_groups
+from omniclf.data import Dataset, load_dataset
+from omniclf.evaluate import ModelResult, compare_models, evaluate_model
 
 LOGGER = logging.getLogger(__name__)
 

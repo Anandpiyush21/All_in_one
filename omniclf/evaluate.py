@@ -27,12 +27,12 @@ from sklearn.metrics import (
 from sklearn.model_selection import GridSearchCV, cross_validate
 from sklearn.pipeline import Pipeline
 
-from autoclf.config import RunConfig
-from autoclf.cross_val import build_cv
-from autoclf.data import Dataset
-from autoclf.models import describe as describe_model
-from autoclf.models import param_grid
-from autoclf.pipeline import build_pipeline, selected_feature_names
+from omniclf.config import RunConfig
+from omniclf.cross_val import build_cv
+from omniclf.data import Dataset
+from omniclf.models import describe as describe_model
+from omniclf.models import param_grid
+from omniclf.pipeline import build_pipeline, selected_feature_names
 
 LOGGER = logging.getLogger(__name__)
 

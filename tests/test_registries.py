@@ -5,10 +5,10 @@ import pickle
 import pytest
 from sklearn.base import BaseEstimator
 
-from autoclf.cross_val import SPLITTERS, build_cv, requires_groups
-from autoclf.feature_selection import SELECTORS, build_selector
-from autoclf.models import MODELS, build_model, param_grid
-from autoclf.preprocessing import SCALERS, build_scaler
+from omniclf.cross_val import SPLITTERS, build_cv, requires_groups
+from omniclf.feature_selection import SELECTORS, build_selector
+from omniclf.models import MODELS, build_model, param_grid
+from omniclf.preprocessing import SCALERS, build_scaler
 
 
 @pytest.mark.parametrize("key", sorted(SCALERS))

@@ -10,7 +10,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from autoclf.config import RunConfig
+from omniclf.config import RunConfig
 
 
 @pytest.fixture(scope="session")

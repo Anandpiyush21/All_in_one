@@ -1,6 +1,6 @@
 import pytest
 
-from autoclf.config import RunConfig
+from omniclf.config import RunConfig
 
 
 def test_defaults_are_valid():
