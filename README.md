@@ -25,9 +25,11 @@ health survey (30,548 usable records, 4.9 : 1 class ratio), the tool shows why
 this matters: the model with the *highest accuracy* in the benchmark, 83.0%, is
 the one that learned nothing at all.
 
-📄 **[REPORT.md](REPORT.md)** — the full technical report: the leakage taxonomy,
-an audit of the previous implementation, the design rationale, the complete
-results and discussion, and the limitations.
+📄 **Technical report** — the leakage taxonomy, an audit of the previous
+implementation, the design rationale, the complete results and discussion, and
+the limitations. Available as a typeset PDF,
+**[report/report.pdf](report/report.pdf)** (17 pages), or in Markdown as
+[REPORT.md](REPORT.md). Rebuild the PDF with `cd report && make`.
 
 ## Contents
 
@@ -311,7 +313,8 @@ omniclf/
 docs/
 └── figures/             figures used by the README and the report
 tests/                   99 tests
-REPORT.md                full technical report
+report/                  LaTeX sources for the technical report + report.pdf
+REPORT.md                the same report in Markdown
 main.py                  entry point
 dataset.csv              bundled demographic health survey extract
 ```

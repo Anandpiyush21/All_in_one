@@ -19,3 +19,10 @@ plots.pdf
 .DS_Store
 .idea/
 .vscode/
+
+# LaTeX intermediates (report.pdf itself is committed)
+report/*.aux
+report/*.log
+report/*.out
+report/*.toc
+report/*.synctex.gz

@@ -1,0 +1,113 @@
+% ---------------------------------------------------------------------------
+% Shared preamble: page geometry, typography, colours, table and code styles.
+% ---------------------------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[a4paper,margin=27mm,top=25mm,bottom=28mm]{geometry}
+\usepackage{microtype}
+% Let TeX stretch the last resort rather than overflow the margin: long
+% \texttt{} tokens (flag names, identifiers) cannot be hyphenated.
+\setlength{\emergencystretch}{3em}
+\hyphenpenalty=1000
+\tolerance=1200
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage[hidelinks]{hyperref}
+\usetikzlibrary{arrows.meta,positioning,fit,backgrounds}
+
+% -- palette (matches the figures the tool generates) -----------------------
+\definecolor{accent}{HTML}{2A78D6}
+\definecolor{ink}{HTML}{0B0B0B}
+\definecolor{inksoft}{HTML}{52514E}
+\definecolor{rule}{HTML}{E4E3DF}
+\definecolor{band}{HTML}{F5F7FA}
+\definecolor{warn}{HTML}{D03B3B}
+
+% -- headings ---------------------------------------------------------------
+\titleformat{\section}{\Large\bfseries\color{accent}}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\large\bfseries\color{ink}}{\thesubsection}{0.7em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\color{inksoft}}{\thesubsubsection}{0.7em}{}
+\titlespacing*{\section}{0pt}{2.2ex plus 1ex minus .2ex}{1.2ex plus .2ex}
+
+% -- running heads ----------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhead[L]{\footnotesize\color{inksoft}OmniCLF --- Technical Report}
+\fancyhead[R]{\footnotesize\color{inksoft}\leftmark}
+\fancyfoot[C]{\footnotesize\color{inksoft}\thepage}
+
+% -- float placement --------------------------------------------------------
+% Defaults strand wide figures on pages of their own; let floats share a page
+% with a decent amount of text instead.
+\renewcommand{\topfraction}{0.92}
+\renewcommand{\bottomfraction}{0.75}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.80}
+\setcounter{topnumber}{2}
+\setcounter{totalnumber}{3}
+
+% -- captions ---------------------------------------------------------------
+\captionsetup{font=small,labelfont={bf,color=accent},width=.92\textwidth}
+
+% -- tables -----------------------------------------------------------------
+\renewcommand{\arraystretch}{1.25}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+% Ragged-right inside X columns: justifying short table prose opens ugly
+% inter-word gaps in a narrow measure.
+\renewcommand{\tabularxcolumn}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\newcommand{\best}[1]{\textbf{#1}}
+
+% -- code -------------------------------------------------------------------
+\lstdefinestyle{py}{
+  language=Python,
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{accent},
+  commentstyle=\color{inksoft}\itshape,
+  stringstyle=\color{inksoft},
+  numbers=none,
+  frame=leftline,
+  framerule=1.6pt,
+  rulecolor=\color{rule},
+  xleftmargin=10pt,
+  framexleftmargin=10pt,
+  breaklines=true,
+  showstringspaces=false,
+  aboveskip=1.1em, belowskip=1.1em,
+}
+\lstdefinestyle{sh}{
+  language=bash,
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{ink},
+  numbers=none,
+  frame=leftline, framerule=1.6pt, rulecolor=\color{rule},
+  xleftmargin=10pt, framexleftmargin=10pt,
+  breaklines=true, showstringspaces=false,
+  aboveskip=1.1em, belowskip=1.1em,
+}
+\lstset{style=py}
+
+% -- callout box ------------------------------------------------------------
+\newcommand{\keypoint}[1]{%
+  \begin{center}
+  \begin{minipage}{0.94\textwidth}
+    \setlength{\fboxsep}{9pt}%
+    \colorbox{band}{\begin{minipage}{\dimexpr\textwidth-2\fboxsep}
+      \small #1
+    \end{minipage}}
+  \end{minipage}
+  \end{center}
+}
