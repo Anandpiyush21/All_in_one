@@ -1,6 +1,4 @@
-# autoclf — an automated, leakage-free classification pipeline
-
-**M.Tech course project · Department of Computer Science, IIT Hyderabad**
+# AutoCLF — An Automated, Leakage-Free Classification Pipeline
 
 A command-line tool that takes an arbitrary tabular CSV and produces a
 validated classification experiment: preprocessing, feature selection, model
@@ -19,7 +17,7 @@ Building a classifier is easy; producing an accuracy figure that survives
 contact with new data is not. The common failure is not a bad model but a
 *leaky evaluation*: a scaler, an imputer or a feature ranking fitted on the
 whole dataset before the folds are drawn, so every reported score is quietly
-optimistic. `autoclf` makes that mistake structurally impossible — every
+optimistic. AutoCLF makes that mistake structurally impossible — every
 data-dependent transformation lives inside a scikit-learn `Pipeline` and is
 refitted from scratch on each training fold — and reports the metrics that
 remain informative when classes are imbalanced. On the bundled demographic
